@@ -1,0 +1,46 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-color: black;
+
+}
+
+.block{
+    position: relative;
+    margin: 10px;
+    width: 50%;
+    height: 400px;
+    background: linear-gradient (0deg ,black, purple, blue);
+
+}
+
+.glow::before , .glow::after{
+    content:"";
+    position:absolute;
+    left: -2px;
+    top: -2px;
+    background: linear-gradient(45deg , yellow, orange, green, lightpink, plum, red, lightblue);
+    background-size: 400%;
+    width: calc(100% + 20px);
+    height: calc(100% + 5px);
+    z-index: -1;
+    animation: animate 20s linear infinite;
+}
+
+@Keyframes animate{
+    0%{
+        background-position: 0 0
+    }
+    50%{
+        background-position: 400% 0;
+    }
+    100%{
+        background-position: 0 0;
+    }    
+}
+
+.glow::after{
+    filter: blur(40px);
+}
+        
+    
